@@ -1,7 +1,7 @@
 {
-  "주분석_정적": 11,
-  "R1_soft": 11,
-  "R2_연도정합": 11,
-  "R3_청년2030": 10,
-  "R3_장년5070": 7
+  "main_static": 11,
+  "R1_soft_allocation": 11,
+  "R2_year_matched": 11,
+  "R3_young_20s_30s": 10,
+  "R3_older_50s_70plus": 7
 }

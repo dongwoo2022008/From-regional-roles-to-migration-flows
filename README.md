@@ -10,7 +10,7 @@ The study tests whether the six life-course functional roles measured in the com
 
 | Directory | Contents |
 |---|---|
-| `prespecification/` | Dated pre-specification document (predicted-sign matrix, pair partition, success criterion ≥ 11/13, auxiliary age predictions A1–A3, decision rules) — fixed before any role-to-role flow had been computed |
+| `prespecification/` | Dated pre-specification document (predicted-sign matrix, pair partition, success criterion ≥ 11/13, auxiliary age predictions A1–A3, decision rules) — fixed before any role-to-role flow had been computed. Korean registered original (verbatim) plus an English translation |
 | `code/` | Full analysis pipeline and figure scripts (Python 3; numpy, matplotlib) |
 | `data/` | Harmonisation crosswalk (`sgg_harmonize_map.csv`) and inherited role assignments from the companion study (fixed inputs; not re-estimated here) — see `data/README.md` |
 | `outputs/` | Numerical results: permutation inference, reconfiguration, robustness, effectiveness matrices, role tables, and the tensor build audit (flow-conservation checks of Appendix A) |
