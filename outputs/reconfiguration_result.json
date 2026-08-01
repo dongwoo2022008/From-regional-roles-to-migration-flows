@@ -1,0 +1,21 @@
+{
+  "early": {"signmatch": 11, "intensity": 5.016, "perm_p": 0.0},
+  "late": {"signmatch": 12, "intensity": 7.312, "perm_p": 0.0},
+  "n_both": 228,
+  "delta": [
+    {"pair": "SUP→ANC", "E_early": 5.26, "E_late": -1.45, "dE": -6.7, "ci": [-10.74, -2.69], "p": 0.004, "fdr_sig": true},
+    {"pair": "SUP→OUT", "E_early": -1.12, "E_late": -2.34, "dE": -1.23, "ci": [-5.19, 2.28], "p": 0.432, "fdr_sig": false},
+    {"pair": "SUP→ESC", "E_early": 2.28, "E_late": 2.07, "dE": -0.21, "ci": [-5.35, 5.3], "p": 0.948, "fdr_sig": false},
+    {"pair": "SUP→LAND", "E_early": 2.45, "E_late": 4.34, "dE": 1.88, "ci": [-5.66, 12.12], "p": 0.692, "fdr_sig": false},
+    {"pair": "SUP→HTR", "E_early": 4.72, "E_late": 11.9, "dE": 7.18, "ci": [-7.52, 15.24], "p": 0.448, "fdr_sig": false},
+    {"pair": "ANC→ESC", "E_early": 5.64, "E_late": 3.38, "dE": -2.26, "ci": [-6.43, 2.68], "p": 0.32, "fdr_sig": false},
+    {"pair": "ANC→LAND", "E_early": 5.12, "E_late": 15.58, "dE": 10.46, "ci": [3.43, 18.56], "p": 0.006, "fdr_sig": true},
+    {"pair": "ANC→HTR", "E_early": 1.98, "E_late": 14.78, "dE": 12.8, "ci": [-3.34, 25.51], "p": 0.164, "fdr_sig": false},
+    {"pair": "OUT→ESC", "E_early": -3.42, "E_late": -5.95, "dE": -2.53, "ci": [-7.78, 2.24], "p": 0.278, "fdr_sig": false},
+    {"pair": "OUT→LAND", "E_early": 12.37, "E_late": 17.59, "dE": 5.22, "ci": [-2.16, 13.27], "p": 0.17, "fdr_sig": false},
+    {"pair": "OUT→HTR", "E_early": 14.73, "E_late": 9.74, "dE": -4.99, "ci": [-14.19, 5.56], "p": 0.336, "fdr_sig": false},
+    {"pair": "ESC→LAND", "E_early": 16.05, "E_late": 11.89, "dE": -4.17, "ci": [-12.86, 3.47], "p": 0.326, "fdr_sig": false},
+    {"pair": "ESC→HTR", "E_early": 7.42, "E_late": 7.28, "dE": -0.15, "ci": [-22.63, 10.43], "p": 0.766, "fdr_sig": false}
+  ],
+  "fdr_sig": 2
+}

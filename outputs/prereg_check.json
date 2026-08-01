@@ -1,0 +1,20 @@
+{
+  "n_match": 11,
+  "n_total": 13,
+  "verdict": "PASS",
+  "pairs": [
+    {"i": "SUP", "j": "ANC", "pred": "-", "E": 4.232, "match": false},
+    {"i": "SUP", "j": "OUT", "pred": "-", "E": -2.609, "match": true},
+    {"i": "SUP", "j": "ESC", "pred": "+", "E": 2.247, "match": true},
+    {"i": "SUP", "j": "LAND", "pred": "+", "E": 1.922, "match": true},
+    {"i": "SUP", "j": "HTR", "pred": "+", "E": 7.957, "match": true},
+    {"i": "ANC", "j": "ESC", "pred": "+", "E": 8.945, "match": true},
+    {"i": "ANC", "j": "LAND", "pred": "+", "E": 4.691, "match": true},
+    {"i": "ANC", "j": "HTR", "pred": "+", "E": 8.544, "match": true},
+    {"i": "OUT", "j": "ESC", "pred": "+", "E": -5.016, "match": false},
+    {"i": "OUT", "j": "LAND", "pred": "+", "E": 16.492, "match": true},
+    {"i": "OUT", "j": "HTR", "pred": "+", "E": 10.524, "match": true},
+    {"i": "ESC", "j": "LAND", "pred": "+", "E": 13.113, "match": true},
+    {"i": "ESC", "j": "HTR", "pred": "+", "E": 4.774, "match": true}
+  ]
+}

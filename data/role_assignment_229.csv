@@ -1,0 +1,230 @@
+panel_code,sido,role,mean_membership
+28720,Incheon,High-turnover reception,1.000
+47940,Gyeongbuk,High-turnover reception,1.000
+44250,Chungnam,High-turnover reception,0.998
+51790,Gangwon,High-turnover reception,0.909
+46880,Jeonnam,High-turnover reception,0.832
+28110,Incheon,High-turnover reception,0.761
+51820,Gangwon,High-turnover reception,0.744
+43760,Chungbuk,High-turnover reception,0.718
+46910,Jeonnam,High-turnover reception,0.716
+52750,Jeonbuk,High-turnover reception,0.645
+27110,Daegu,High-turnover reception,0.641
+26440,Busan,High-turnover reception,0.619
+36110,Sejong,High-turnover reception,0.570
+29110,Gwangju,High-turnover reception,0.516
+52710,Jeonbuk,High-turnover reception,0.490
+46840,Jeonnam,High-turnover reception,0.450
+41290,Gyeonggi,High-turnover reception,0.447
+47750,Gyeongbuk,Supplier-return,0.999
+46860,Jeonnam,Supplier-return,0.998
+47920,Gyeongbuk,Supplier-return,0.997
+47730,Gyeongbuk,Supplier-return,0.993
+43800,Chungbuk,Supplier-return,0.992
+47820,Gyeongbuk,Supplier-return,0.990
+46780,Jeonnam,Supplier-return,0.987
+43720,Chungbuk,Supplier-return,0.986
+51750,Gangwon,Supplier-return,0.983
+44710,Chungnam,Supplier-return,0.981
+46770,Jeonnam,Supplier-return,0.980
+48860,Gyeongnam,Supplier-return,0.978
+43740,Chungbuk,Supplier-return,0.975
+47840,Gyeongbuk,Supplier-return,0.966
+51760,Gangwon,Supplier-return,0.966
+46720,Jeonnam,Supplier-return,0.943
+47770,Gyeongbuk,Supplier-return,0.943
+48820,Gyeongnam,Supplier-return,0.941
+51230,Gangwon,Supplier-return,0.940
+47830,Gyeongbuk,Supplier-return,0.936
+48740,Gyeongnam,Supplier-return,0.933
+44790,Chungnam,Supplier-return,0.931
+46730,Jeonnam,Supplier-return,0.928
+44825,Chungnam,Supplier-return,0.923
+48730,Gyeongnam,Supplier-return,0.905
+51720,Gangwon,Supplier-return,0.894
+47760,Gyeongbuk,Supplier-return,0.881
+48720,Gyeongnam,Supplier-return,0.881
+46810,Jeonnam,Supplier-return,0.880
+48890,Gyeongnam,Supplier-return,0.875
+51770,Gangwon,Supplier-return,0.866
+48840,Gyeongnam,Supplier-return,0.844
+46830,Jeonnam,Supplier-return,0.834
+51730,Gangwon,Supplier-return,0.834
+52790,Jeonbuk,Supplier-return,0.827
+41800,Gyeonggi,Supplier-return,0.820
+52800,Jeonbuk,Supplier-return,0.817
+46870,Jeonnam,Supplier-return,0.817
+47930,Gyeongbuk,Supplier-return,0.816
+47230,Gyeongbuk,Supplier-return,0.810
+52740,Jeonbuk,Supplier-return,0.808
+46900,Jeonnam,Supplier-return,0.807
+46820,Jeonnam,Supplier-return,0.786
+51830,Gangwon,Supplier-return,0.774
+48850,Gyeongnam,Supplier-return,0.770
+51780,Gangwon,Supplier-return,0.766
+46800,Jeonnam,Supplier-return,0.745
+52730,Jeonbuk,Supplier-return,0.737
+51800,Gangwon,Supplier-return,0.735
+44230,Chungnam,Supplier-return,0.724
+46790,Jeonnam,Supplier-return,0.724
+48870,Gyeongnam,Supplier-return,0.720
+47900,Gyeongbuk,Supplier-return,0.711
+27720,Daegu,Supplier-return,0.681
+52210,Jeonbuk,Supplier-return,0.670
+47850,Gyeongbuk,Supplier-return,0.666
+52720,Jeonbuk,Supplier-return,0.652
+43770,Chungbuk,Supplier-return,0.638
+51810,Gangwon,Supplier-return,0.637
+28710,Incheon,Supplier-return,0.619
+52770,Jeonbuk,Supplier-return,0.617
+44150,Chungnam,Supplier-return,0.592
+41820,Gyeonggi,Supplier-return,0.577
+46710,Jeonnam,Supplier-return,0.545
+46170,Jeonnam,Supplier-return,0.534
+44810,Chungnam,Supplier-return,0.528
+47280,Gyeongbuk,Supplier-return,0.525
+46890,Jeonnam,Supplier-return,0.515
+50130,Jeju,Supplier-return,0.346
+47110,Gyeongbuk,Low-mobility anchor,1.000
+46130,Jeonnam,Low-mobility anchor,1.000
+43110,Chungbuk,Low-mobility anchor,1.000
+50110,Jeju,Low-mobility anchor,1.000
+48110,Gyeongnam,Low-mobility anchor,1.000
+48170,Gyeongnam,Low-mobility anchor,1.000
+43130,Chungbuk,Low-mobility anchor,1.000
+51150,Gangwon,Low-mobility anchor,1.000
+47210,Gyeongbuk,Low-mobility anchor,1.000
+52130,Jeonbuk,Low-mobility anchor,1.000
+48220,Gyeongnam,Low-mobility anchor,1.000
+43150,Chungbuk,Low-mobility anchor,0.999
+51110,Gangwon,Low-mobility anchor,0.999
+46150,Jeonnam,Low-mobility anchor,0.999
+47130,Gyeongbuk,Low-mobility anchor,0.999
+52190,Jeonbuk,Low-mobility anchor,0.995
+48880,Gyeongnam,Low-mobility anchor,0.994
+52140,Jeonbuk,Low-mobility anchor,0.991
+47190,Gyeongbuk,Low-mobility anchor,0.990
+47170,Gyeongbuk,Low-mobility anchor,0.988
+44210,Chungnam,Low-mobility anchor,0.985
+44180,Chungnam,Low-mobility anchor,0.984
+48310,Gyeongnam,Low-mobility anchor,0.978
+51130,Gangwon,Low-mobility anchor,0.974
+48270,Gyeongnam,Low-mobility anchor,0.966
+52180,Jeonbuk,Low-mobility anchor,0.948
+52110,Jeonbuk,Low-mobility anchor,0.893
+47150,Gyeongbuk,Low-mobility anchor,0.891
+48250,Gyeongnam,Low-mobility anchor,0.847
+44130,Chungnam,Low-mobility anchor,0.810
+26200,Busan,Low-mobility anchor,0.776
+44760,Chungnam,Low-mobility anchor,0.747
+51170,Gangwon,Low-mobility anchor,0.711
+51190,Gangwon,Low-mobility anchor,0.693
+48240,Gyeongnam,Low-mobility anchor,0.669
+47250,Gyeongbuk,Low-mobility anchor,0.667
+43730,Chungbuk,Low-mobility anchor,0.662
+46230,Jeonnam,Low-mobility anchor,0.658
+44270,Chungnam,Low-mobility anchor,0.591
+26380,Busan,Low-mobility anchor,0.555
+44770,Chungnam,Low-mobility anchor,0.545
+41500,Gyeonggi,Low-mobility anchor,0.538
+44800,Chungnam,Low-mobility anchor,0.376
+11590,Seoul,Escalator,0.999
+11620,Seoul,Escalator,0.994
+27200,Daegu,Escalator,0.978
+11170,Seoul,Escalator,0.948
+11560,Seoul,Escalator,0.942
+11200,Seoul,Escalator,0.899
+11140,Seoul,Escalator,0.898
+11440,Seoul,Escalator,0.884
+11110,Seoul,Escalator,0.876
+26110,Busan,Escalator,0.830
+11410,Seoul,Escalator,0.784
+26500,Busan,Escalator,0.780
+11650,Seoul,Escalator,0.753
+11680,Seoul,Escalator,0.721
+11215,Seoul,Escalator,0.617
+11230,Seoul,Escalator,0.563
+26170,Busan,Escalator,0.399
+11260,Seoul,Gradual outflow,0.962
+11350,Seoul,Gradual outflow,0.961
+26350,Busan,Gradual outflow,0.949
+30170,Daejeon,Gradual outflow,0.945
+11305,Seoul,Gradual outflow,0.902
+30230,Daejeon,Gradual outflow,0.898
+26410,Busan,Gradual outflow,0.896
+11320,Seoul,Gradual outflow,0.895
+28237,Incheon,Gradual outflow,0.891
+26530,Busan,Gradual outflow,0.890
+27260,Daegu,Gradual outflow,0.883
+41130,Gyeonggi,Gradual outflow,0.881
+11470,Seoul,Gradual outflow,0.871
+27170,Daegu,Gradual outflow,0.843
+30140,Daejeon,Gradual outflow,0.837
+26290,Busan,Gradual outflow,0.837
+41410,Gyeonggi,Gradual outflow,0.833
+31140,Ulsan,Gradual outflow,0.802
+41170,Gyeonggi,Gradual outflow,0.799
+26230,Busan,Gradual outflow,0.796
+28245,Incheon,Gradual outflow,0.790
+11380,Seoul,Gradual outflow,0.765
+11500,Seoul,Gradual outflow,0.753
+27290,Daegu,Gradual outflow,0.747
+29140,Gwangju,Gradual outflow,0.735
+31110,Ulsan,Gradual outflow,0.732
+11530,Seoul,Gradual outflow,0.727
+29170,Gwangju,Gradual outflow,0.722
+27230,Daegu,Gradual outflow,0.712
+28177,Incheon,Gradual outflow,0.695
+27140,Daegu,Gradual outflow,0.681
+11545,Seoul,Gradual outflow,0.675
+28140,Incheon,Gradual outflow,0.671
+41310,Gyeonggi,Gradual outflow,0.665
+41210,Gyeonggi,Gradual outflow,0.663
+26140,Busan,Gradual outflow,0.656
+26260,Busan,Gradual outflow,0.654
+11710,Seoul,Gradual outflow,0.651
+41190,Gyeonggi,Gradual outflow,0.648
+11290,Seoul,Gradual outflow,0.633
+41650,Gyeonggi,Gradual outflow,0.604
+26320,Busan,Gradual outflow,0.568
+11740,Seoul,Gradual outflow,0.566
+30110,Daejeon,Gradual outflow,0.564
+31170,Ulsan,Gradual outflow,0.560
+41270,Gyeonggi,Gradual outflow,0.544
+28200,Incheon,Gradual outflow,0.540
+46110,Jeonnam,Gradual outflow,0.538
+41110,Gyeonggi,Gradual outflow,0.515
+29155,Gwangju,Gradual outflow,0.499
+41150,Gyeonggi,Gradual outflow,0.486
+51210,Gangwon,Gradual outflow,0.480
+41430,Gyeonggi,Gradual outflow,0.462
+26470,Busan,Gradual outflow,0.425
+41250,Gyeonggi,Gradual outflow,0.421
+41450,Gyeonggi,Gradual outflow,0.366
+28185,Incheon,Landing zone,0.840
+41610,Gyeonggi,Landing zone,0.823
+41480,Gyeonggi,Landing zone,0.782
+28260,Incheon,Landing zone,0.780
+41830,Gyeonggi,Landing zone,0.759
+41460,Gyeonggi,Landing zone,0.738
+41360,Gyeonggi,Landing zone,0.733
+44200,Chungnam,Landing zone,0.730
+41590,Gyeonggi,Landing zone,0.647
+41630,Gyeonggi,Landing zone,0.642
+48330,Gyeongnam,Landing zone,0.617
+43750,Chungbuk,Landing zone,0.588
+31200,Ulsan,Landing zone,0.584
+41370,Gyeonggi,Landing zone,0.575
+26710,Busan,Landing zone,0.529
+31710,Ulsan,Landing zone,0.519
+41390,Gyeonggi,Landing zone,0.517
+41570,Gyeonggi,Landing zone,0.507
+43745,Chungbuk,Landing zone,0.492
+27710,Daegu,Landing zone,0.484
+41220,Gyeonggi,Landing zone,0.470
+41550,Gyeonggi,Landing zone,0.458
+41280,Gyeonggi,Landing zone,0.449
+41670,Gyeonggi,Landing zone,0.413
+29200,Gwangju,Landing zone,0.399
+30200,Daejeon,Landing zone,0.349
+47290,Gyeongbuk,Landing zone,0.339
