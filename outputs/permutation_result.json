@@ -1,0 +1,24 @@
+{
+  "obs_signmatch": 11,
+  "null_signmatch_mean": 6.325,
+  "p_global": 0.027,
+  "B": 1000,
+  "SEED": 20260716,
+  "fdr_sig": 6,
+  "m": 13,
+  "cells": [
+    {"pair": "OUT→LAND", "E": 16.49, "pred": "+", "p": 0.0, "fdr_sig": true},
+    {"pair": "OUT→HTR", "E": 10.52, "pred": "+", "p": 0.002, "fdr_sig": true},
+    {"pair": "ESC→LAND", "E": 13.11, "pred": "+", "p": 0.002, "fdr_sig": true},
+    {"pair": "ANC→ESC", "E": 8.95, "pred": "+", "p": 0.005, "fdr_sig": true},
+    {"pair": "SUP→HTR", "E": 7.96, "pred": "+", "p": 0.009, "fdr_sig": true},
+    {"pair": "ANC→HTR", "E": 8.54, "pred": "+", "p": 0.013, "fdr_sig": true},
+    {"pair": "SUP→ANC", "E": 4.23, "pred": "-", "p": 0.041, "fdr_sig": false},
+    {"pair": "ANC→LAND", "E": 4.69, "pred": "+", "p": 0.084, "fdr_sig": false},
+    {"pair": "OUT→ESC", "E": -5.02, "pred": "+", "p": 0.115, "fdr_sig": false},
+    {"pair": "SUP→OUT", "E": -2.61, "pred": "-", "p": 0.16, "fdr_sig": false},
+    {"pair": "ESC→HTR", "E": 4.77, "pred": "+", "p": 0.257, "fdr_sig": false},
+    {"pair": "SUP→LAND", "E": 1.92, "pred": "+", "p": 0.405, "fdr_sig": false},
+    {"pair": "SUP→ESC", "E": 2.25, "pred": "+", "p": 0.421, "fdr_sig": false}
+  ]
+}

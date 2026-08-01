@@ -1,0 +1,6 @@
+[
+  {"age": "20대", "pair": "SUP→ESC", "E": 28.19, "p_one": 0.0, "p_two": 0.0},
+  {"age": "30대", "pair": "ESC→LAND", "E": 19.91, "p_one": 0.0, "p_two": 0.0},
+  {"age": "20대", "pair": "ESC→LAND", "E": -4.45, "p_one": 0.857, "p_two": 0.296},
+  {"age": "40대", "pair": "ESC→LAND", "E": 14.85, "p_one": 0.0, "p_two": 0.0}
+]
