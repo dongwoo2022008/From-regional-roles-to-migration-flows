@@ -1,4 +1,4 @@
-"""F5: 에스컬레이터 서명 — (a) ESC 총 순이동 by age (청년유입/가족기유출), (b) 공급측 3채널 feed→return 반전"""
+"""F5: escalator signature — (a) total ESC net migration by age (young inflow / family-stage outflow), (b) feed→return reversal in the three supply-side channels"""
 import numpy as np,matplotlib
 matplotlib.use('Agg'); import matplotlib.pyplot as plt
 plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10,'axes.spines.top':False,'axes.spines.right':False,'savefig.dpi':200})

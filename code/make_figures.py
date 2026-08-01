@@ -1,7 +1,7 @@
-"""논문④ Step7: 핵심 figure 3종 (저널용, 영문 라벨)
-F1 파이프라인 부호 히트맵(예측 vs 관측 E_ij + FDR 유의)
-F2 연령정합 곡선(생애과정 서명): SUP→ESC, ESC→LAND, ESC→HTR by age
-F3 재편 슬로프: E_early -> E_late (확증 13쌍), FDR 유의 강조
+"""Paper 4, Step 7: three key figures (journal-ready, English labels)
+F1 pipeline sign heatmap (predicted vs observed E_ij + FDR significance)
+F2 age-alignment curves (life-course signature): SUP→ESC, ESC→LAND, ESC→HTR by age
+F3 reconfiguration slope: E_early -> E_late (13 confirmatory pairs), FDR-significant highlighted
 """
 import json,numpy as np,matplotlib
 matplotlib.use('Agg')
@@ -12,13 +12,13 @@ plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10,'axes.linewidth'
 OUT='/home/claude/paper4_work/outputs'; FIG='/home/claude/paper4_work/figures'
 ROLES=['SUP','ANC','OUT','ESC','LAND','HTR']
 RLAB=['Sup-ret\n(SUP)','Anchor\n(ANC)','Grad-out\n(OUT)','Escal.\n(ESC)','Landing\n(LAND)','Hi-turn\n(HTR)']
-DIV='RdBu_r'   # 발산형: 파랑(순유입<0) - 회백(0) - 빨강(순유출>0)
+DIV='RdBu_r'   # diverging: blue (net inflow <0) - grey-white (0) - red (net outflow >0)
 
 # ---------- F1 ----------
 eff=np.load(f'{OUT}/effectiveness_static.npz',allow_pickle=True); E=eff['E_all']
 perm=json.load(open(f'{OUT}/permutation_result.json'))
 fdrsig={c['pair']:c['fdr_sig'] for c in perm['cells']}
-# 예측 부호행렬
+# Predicted sign matrix
 M={'SUP':{'ANC':-1,'OUT':-1,'ESC':1,'LAND':1,'HTR':1},'ANC':{'SUP':1,'OUT':0,'ESC':1,'LAND':1,'HTR':1},
    'OUT':{'SUP':1,'ANC':0,'ESC':1,'LAND':1,'HTR':1},'ESC':{'SUP':-1,'ANC':-1,'OUT':-1,'LAND':1,'HTR':1},
    'LAND':{'SUP':-1,'ANC':-1,'OUT':-1,'ESC':-1,'HTR':0},'HTR':{'SUP':-1,'ANC':-1,'OUT':-1,'ESC':-1,'LAND':0}}
@@ -46,7 +46,7 @@ for i in range(6):
         if i==j: axs[1].add_patch(plt.Rectangle((j-.5,i-.5),1,1,color='0.9')); continue
         val=E[i,j]
         a,b=(min(i,j),max(i,j)); pr=f'{ROLES[a]}→{ROLES[b]}'
-        star='*' if fdrsig.get(pr,False) and (i<j) else ''  # 무방향쌍 유의 표시(상삼각)
+        star='*' if fdrsig.get(pr,False) and (i<j) else ''  # mark undirected-pair significance (upper triangle)
         axs[1].text(j,i,f'{val:+.0f}{star}',ha='center',va='center',fontsize=8.5,
                     color='white' if abs(val)>vmax*0.55 else '0.15')
 axs[1].set_title('(b) Observed effectiveness $E_{ij}$  (* FDR<0.05)',fontsize=11)
@@ -99,7 +99,7 @@ print('F2 saved')
 rec=json.load(open(f'{OUT}/reconfiguration_result.json')); D=rec['delta']
 fig,ax=plt.subplots(figsize=(7.5,6))
 order=sorted(D,key=lambda d:d['E_late'])
-# 라벨 수직 충돌 완화: 후기값 기준 정렬 후 최소간격 확보한 y위치 계산
+# Reduce vertical label collisions: sort by late value, then compute y positions with a minimum gap
 ys=[d['E_late'] for d in order]; lab_y=list(ys); gap=1.15
 for k in range(1,len(lab_y)):
     if lab_y[k]-lab_y[k-1]<gap: lab_y[k]=lab_y[k-1]+gap
