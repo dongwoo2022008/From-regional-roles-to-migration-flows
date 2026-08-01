@@ -1,13 +1,14 @@
 """
-논문④ Step5 (RQ2): 역할흐름 결합구조 재편 — 초기(2008-2011) vs 후기(2022-2025)
-- 각 기간: 해당기간 흐름 합 + 해당기간 modal 역할(D8 창평균 argmax)로 6×6 E_ij.
-- 파이프라인 강도 = 사전등록 13쌍의 '예측방향 E' 평균(높을수록 파이프라인 강함).
-- 각 기간 라벨 permutation p (파이프라인 존재) + 채널별 ΔE 지역 부트스트랩 CI + BH-FDR.
+Paper 4, Step 5 (RQ2): reconfiguration of the role-flow coupling structure — early (2008-2011) vs late (2022-2025)
+- Each period: sum of that period's flows + that period's modal roles (D8 window-mean argmax) -> 6x6 E_ij.
+- Pipeline intensity = mean of the 'predicted-direction E' over the 13 pre-registered pairs (higher = stronger pipeline).
+- Per-period label permutation p (pipeline existence) + per-channel delta-E region bootstrap CI + BH-FDR.
 B=1000, SEED=20260716.
 """
 import json,csv,numpy as np
 RAW='/mnt/user-data/uploads/migration_cache/_shared/raw'
 DATA='/home/claude/paper4_work/data'; OUT='/home/claude/paper4_work/outputs'
+# Korean labels mirror the raw data files / companion-study columns; do not translate.
 AGES=["10세이하","10대","20대","30대","40대","50대","60대","70대이상"]
 ROLES=['SUP','ANC','OUT','ESC','LAND','HTR']; RIDX={r:i for i,r in enumerate(ROLES)}
 SEED=20260716; B=1000
@@ -17,7 +18,7 @@ M={ 'SUP':{'ANC':'-','OUT':'-','ESC':'+','LAND':'+','HTR':'+'},
  'ESC':{'SUP':'-','ANC':'-','OUT':'-','LAND':'+','HTR':'+'},
  'LAND':{'SUP':'-','ANC':'-','OUT':'-','ESC':'-','HTR':'?'},
  'HTR':{'SUP':'-','ANC':'-','OUT':'-','ESC':'-','LAND':'?'} }
-# 확증 무방향쌍 + 예측부호(+1/-1)
+# Confirmatory undirected pairs + predicted sign (+1/-1)
 UND=[]
 for a in range(6):
     for b in range(a+1,6):
@@ -30,7 +31,7 @@ for r in csv.DictReader(open(f'{DATA}/sgg_harmonize_map.csv',encoding='utf-8-sig
     if pc=='':DROP.add(int(r['raw_code']))
     else:hm[int(r['raw_code'])]=int(pc)
 def harm(c): return None if c in DROP else hm.get(c,c)
-# 기간 modal 역할
+# Period modal roles
 per={}
 for r in csv.DictReader(open(f'{OUT}/roles_period_modal.csv',encoding='utf-8-sig')):
     per[int(r['panel_code'])]={'E':r['modal_2008_2011'],'L':r['modal_2022_2025']}
@@ -67,16 +68,16 @@ def eff(F):
             if T>0:E[i,j]=100*(F[i,j]-F[j,i])/T
     return E
 def intensity(E):
-    return np.mean([ (E[a,b]*s) for a,b,s in UND ])  # 예측방향 성분 평균
+    return np.mean([ (E[a,b]*s) for a,b,s in UND ])  # mean of predicted-direction components
 def signmatch(E):
     return sum(1 for a,b,s in UND if (1 if E[a,b]>0 else -1)==s)
 
 E_E=eff(role_mat(A_E,rE)); E_L=eff(role_mat(A_L,rL))
-print('=== 기간별 파이프라인 ===')
-for lbl,E in [('초기 2008-2011',E_E),('후기 2022-2025',E_L)]:
-    print(f'{lbl}: 부호일치 {signmatch(E)}/13 | 파이프라인강도(예측방향 E평균) {intensity(E):+.2f}')
+print('=== Pipeline by period ===')
+for lbl,E in [('Early 2008-2011',E_E),('Late 2022-2025',E_L)]:
+    print(f'{lbl}: sign matches {signmatch(E)}/13 | pipeline intensity (mean predicted-direction E) {intensity(E):+.2f}')
 
-# 각 기간 라벨 permutation p (파이프라인 강도)
+# Per-period label permutation p (pipeline intensity)
 rng=np.random.default_rng(SEED)
 def perm_p(A,rv):
     obs=intensity(eff(role_mat(A,rv)))
@@ -87,16 +88,16 @@ def perm_p(A,rv):
         null[b]=intensity(eff(role_mat(A,rp)))
     return obs,float(np.mean(null>=obs)),null.mean()
 oE,pE,nE=perm_p(A_E,rE); oL,pL,nL=perm_p(A_L,rL)
-print(f'\n초기 강도 {oE:+.2f} vs 귀무 {nE:+.2f} p={pE:.4f}')
-print(f'후기 강도 {oL:+.2f} vs 귀무 {nL:+.2f} p={pL:.4f}')
+print(f'\nEarly intensity {oE:+.2f} vs null {nE:+.2f} p={pE:.4f}')
+print(f'Late intensity {oL:+.2f} vs null {nL:+.2f} p={pL:.4f}')
 
-# 채널별 ΔE = 후기 - 초기, 지역 부트스트랩 CI (양 기간 모두 역할 있는 지역만)
+# Per-channel delta E = late - early, region bootstrap CI (only regions with roles in both periods)
 both=np.where((rE>=0)&(rL>=0))[0]
 def eff_pair_sub(A,rv,idx,a,b):
     ri=idx[rv[idx]==a]; rj=idx[rv[idx]==b]
     fij=A[np.ix_(ri,rj)].sum(); fji=A[np.ix_(rj,ri)].sum(); T=fij+fji
     return 100*(fij-fji)/T if T>0 else np.nan
-print('\n=== 채널별 재편 ΔE=후기-초기 (지역 부트스트랩 95% CI, BH-FDR) ===')
+print('\n=== Per-channel reconfiguration ΔE=late-early (region bootstrap 95% CI, BH-FDR) ===')
 rows=[]
 for a,b,s in UND:
     dobs=eff_pair_sub(A_L,rL,both,a,b)-eff_pair_sub(A_E,rE,both,a,b)
@@ -105,7 +106,7 @@ for a,b,s in UND:
         samp=rng.choice(both,size=len(both),replace=True)
         boot[k]=eff_pair_sub(A_L,rL,samp,a,b)-eff_pair_sub(A_E,rE,samp,a,b)
     lo,hi=np.nanpercentile(boot,[2.5,97.5])
-    # 양측 p: 부트스트랩이 0을 포함하는 정도 (2*min tail)
+    # Two-sided p: extent to which the bootstrap distribution includes 0 (2*min tail)
     p=2*min(np.mean(boot<=0),np.mean(boot>=0)); p=min(p,1.0)
     rows.append((ROLES[a]+'→'+ROLES[b],eff_pair_sub(A_E,rE,both,a,b),eff_pair_sub(A_L,rL,both,a,b),dobs,lo,hi,p))
 # BH-FDR
@@ -113,16 +114,16 @@ order=sorted(range(len(rows)),key=lambda k:rows[k][6]); m=len(rows); thr=0
 for rank,k in enumerate(order,1):
     if rows[k][6]<=0.05*rank/m: thr=rank
 sigset=set(order[:thr])
-print(f'{"pair":12}{"E_초기":>8}{"E_후기":>8}{"ΔE":>8}{"CI95":>18}{"p":>8} FDR')
+print(f'{"pair":12}{"E_early":>8}{"E_late":>8}{"ΔE":>8}{"CI95":>18}{"p":>8} FDR')
 res=[]
 for k,(pair,ee,el,d,lo,hi,p) in enumerate(rows):
     mark='*' if k in sigset else ' '
     print(f'{pair:12}{ee:+8.1f}{el:+8.1f}{d:+8.1f}   [{lo:+6.1f},{hi:+6.1f}]{p:8.4f}  {mark}')
     res.append({'pair':pair,'E_early':round(float(ee),2),'E_late':round(float(el),2),'dE':round(float(d),2),'ci':[round(float(lo),2),round(float(hi),2)],'p':round(float(p),4),'fdr_sig':k in sigset})
-print(f'\nFDR 5% 재편 유의 채널: {thr}/{m}')
+print(f'\nFDR 5% significant reconfiguration channels: {thr}/{m}')
 json.dump({'early':{'signmatch':signmatch(E_E),'intensity':round(oE,3),'perm_p':pE},
            'late':{'signmatch':signmatch(E_L),'intensity':round(oL,3),'perm_p':pL},
            'n_both':int(len(both)),'delta':res,'fdr_sig':thr},
           open(f'{OUT}/reconfiguration_result.json','w'),ensure_ascii=False,indent=2)
 np.savez(f'{OUT}/reconfiguration.npz',E_early=E_E,E_late=E_L,F_early=role_mat(A_E,rE),F_late=role_mat(A_L,rL))
-print('저장: reconfiguration_result.json, reconfiguration.npz')
+print('Saved: reconfiguration_result.json, reconfiguration.npz')

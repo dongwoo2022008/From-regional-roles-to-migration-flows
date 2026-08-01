@@ -1,13 +1,16 @@
 """
-논문④ Step4-보조: 연령슬라이스 permutation — 생애과정 특이성 확증
-A1: 20대에서 SUP→ESC(공급→에스컬레이터) 순유출이 유의한가?
-A2: 30대+에서 ESC→LAND(에스컬레이터→착륙지) 순유출이 유의한가?
-역할라벨 permutation(크기보존), B=1000, SEED=20260716.
+Paper 4, Step 4 (auxiliary): age-slice permutation — confirming life-course specificity
+A1: Is the SUP→ESC (supplier→escalator) net outflow significant in the 20s age group?
+A2: Is the ESC→LAND (escalator→landing zone) net outflow significant at ages 30s+?
+Role-label permutation (size-preserving), B=1000, SEED=20260716.
 """
 import json,csv,numpy as np
 RAW='/mnt/user-data/uploads/migration_cache/_shared/raw'
 DATA='/home/claude/paper4_work/data'; OUT='/home/claude/paper4_work/outputs'
+# Korean labels mirror the raw data files / companion-study columns; do not translate.
 AGES=["10세이하","10대","20대","30대","40대","50대","60대","70대이상"]
+# English age labels used for all written/printed outputs.
+AGE_EN={'10세이하':'under10','10대':'10s','20대':'20s','30대':'30s','40대':'40s','50대':'50s','60대':'60s','70대이상':'70plus'}
 YEARS=range(2006,2026)
 ROLES=['SUP','ANC','OUT','ESC','LAND','HTR']; RIDX={r:i for i,r in enumerate(ROLES)}
 SEED=20260716; B=1000
@@ -38,10 +41,11 @@ def eff_pair(A,rv,i,j):
     fij=A[np.ix_(ri,rj)].sum(); fji=A[np.ix_(rj,ri)].sum(); T=fij+fji
     return 100*(fij-fji)/T if T>0 else np.nan
 
-tests=[('20대','SUP','ESC','A1 공급→에스컬레이터 @20대 (예측 강한 +)'),
-       ('30대','ESC','LAND','A2 에스컬레이터→착륙지 @30대 (예측 강한 +)'),
-       ('20대','ESC','LAND','대조: ESC→LAND @20대 (예측 약함)'),
-       ('40대','ESC','LAND','ESC→LAND @40대 (예측 +)')]
+# Age values are Korean raw-file labels (do not translate); display labels use AGE_EN.
+tests=[('20대','SUP','ESC','A1 Supplier→Escalator @20s (predicted strong +)'),
+       ('30대','ESC','LAND','A2 Escalator→Landing zone @30s (predicted strong +)'),
+       ('20대','ESC','LAND','Contrast: ESC→LAND @20s (predicted weak)'),
+       ('40대','ESC','LAND','ESC→LAND @40s (predicted +)')]
 rng=np.random.default_rng(SEED)
 out=[]
 cacheA={}
@@ -50,10 +54,10 @@ for age,i,j,lbl in tests:
     A=cacheA[age]; ii,jj=RIDX[i],RIDX[j]
     eobs=eff_pair(A,rvec,ii,jj)
     null=np.array([eff_pair(A,rng.permutation(rvec),ii,jj) for _ in range(B)])
-    # 예측 방향이 + 이므로 단측 p = P(null >= eobs); 부호 자체는 이미 관측
+    # Predicted direction is +, so one-sided p = P(null >= eobs); the sign itself is already observed
     p_one=float(np.mean(null>=eobs))
     p_two=float(np.mean(np.abs(null)>=abs(eobs)))
-    print(f'{lbl}\n   E_obs={eobs:+.1f} | 귀무평균 {np.nanmean(null):+.2f} | p(단측)={p_one:.4f} p(양측)={p_two:.4f}')
-    out.append({'age':age,'pair':f'{i}→{j}','E':round(float(eobs),2),'p_one':round(p_one,4),'p_two':round(p_two,4)})
+    print(f'{lbl}\n   E_obs={eobs:+.1f} | null mean {np.nanmean(null):+.2f} | p(one-sided)={p_one:.4f} p(two-sided)={p_two:.4f}')
+    out.append({'age':AGE_EN[age],'pair':f'{i}→{j}','E':round(float(eobs),2),'p_one':round(p_one,4),'p_two':round(p_two,4)})
 json.dump(out,open(f'{OUT}/permutation_age.json','w'),ensure_ascii=False,indent=2)
-print('\n저장: permutation_age.json')
+print('\nSaved: permutation_age.json')
